@@ -5,17 +5,17 @@ import java.time.LocalDate;
 public class Student
 {
     private String name;
-    private String surname;
-    private LocalDate birth;
-    private String uni;
+    private String lastname;
+    private LocalDate birthdate;
+    private String university;
 
 
-    Student(String name, String surname, LocalDate birth, String uni)
+    Student(String name, String lastname, LocalDate birthdate, String university)
     {
         this.name = name;
-        this.surname = surname;
-        this.birth = birth;
-        this.uni = uni;
+        this.lastname = lastname;
+        this.birthdate = birthdate;
+        this.university = university;
     }
 
     public void setName(String name)
@@ -27,66 +27,50 @@ public class Student
         return name;
     }
 
-    public void setSurname(String surname)
+    public void setLastname(String lastname)
     {
-        this.surname = surname;
+        this.lastname = lastname;
     }
-    public String getSurname()
+    public String getLastname()
     {
-        return surname;
-    }
-
-    public void setBirth(LocalDate birth)
-    {
-        this.birth = birth;
-    }
-    public LocalDate getBirth()
-    {
-        return birth;
+        return lastname;
     }
 
-    public void setUni(String uni)
+    public void setBirthdate(LocalDate birthdate)
     {
-        this.uni = uni;
+        this.birthdate = birthdate;
     }
-    public String getUni()
+    public LocalDate getBirthdate()
     {
-        return uni;
+        return birthdate;
+    }
+
+    public void setUniversity(String university)
+    {
+        this.university = university;
+    }
+    public String getUniversity()
+    {
+        return university;
     }
 
     int Age()
     {
         LocalDate age = LocalDate.now();
 
-        age = age.minusYears(birth.getYear());
+        age = age.minusYears(birthdate.getYear());
 
-        if(age.getMonthValue() < birth.getMonthValue())
+        if(age.getMonthValue() < birthdate.getMonthValue())
         {
             return age.getYear() - 1;
         }
-        if(age.getMonthValue() == birth.getMonthValue())
+        if(age.getMonthValue() == birthdate.getMonthValue())
         {
-            if(age.getDayOfMonth() > birth.getDayOfMonth())
+            if(age.getDayOfMonth() > birthdate.getDayOfMonth())
             {
                 return age.getYear() - 1;
             }
         }
         return age.getYear();
-    }
-
-    String getFullInfo()
-    {
-        return name + " " + surname + " " + birth.toString() + " " + uni;
-    }
-
-    public static void main(String[] args)
-    {
-        Student a = new Student("Tsotne", "Meladze", LocalDate.of(1996, 10, 9), "Sangu");
-		/*a.setName("Tsotne");
-		a.setSurname("Meladze");
-		a.setUni("Sangu");*/
-
-        System.out.println("Full info: " + a.getFullInfo());
-        System.out.println("Age: " + a.Age());
     }
 }

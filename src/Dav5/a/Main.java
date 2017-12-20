@@ -9,20 +9,20 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		List<Integer> nums = new ArrayList<>();
-        List<String> texts = new ArrayList<>();
+		List<Integer> cifrebi = new ArrayList<>();
+        List<String> asoebi = new ArrayList<>();
 
         Map<Integer, String> combo = new HashMap<>();
 
         for (int i = 0; i < 10; i++)
         {//generate random input
-            nums.add((int)(((Math.random() * 10))));
-            texts.add("Text for key " + nums.get(i));
+            cifrebi.add((int)(((Math.random() * 10))));
+            asoebi.add(cifrebi.get(i).toString());
         }
 
-        for (Integer i: nums)
+        for (Integer i: cifrebi)
         {//put values in combo
-            combo.put(i, texts.get(nums.indexOf(i)));
+            combo.put(i, asoebi.get(cifrebi.indexOf(i)));
         }
 
         for (Map.Entry<Integer, String> pair: combo.entrySet())
